@@ -4,13 +4,13 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 
-class NewHome extends Component
+class Counter extends Component
 {
-    public $counter = 1;
+    public $counter = 0;
 
     public function render()
     {
-        return view('livewire.new-home');
+        return view('website.pages.counter');
     }
 
     public function add()
@@ -18,7 +18,7 @@ class NewHome extends Component
         $this->counter++;
     }
 
-    public function remove()
+    public function subtract()
     {
         $this->counter--;
     }
