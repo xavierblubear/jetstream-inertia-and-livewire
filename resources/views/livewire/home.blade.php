@@ -18,9 +18,7 @@
         @livewireStyles
     </head>
     <body class="font-sans antialiased">
-        <div class="min-h-screen bg-gray-100">
-          <h3>HOME</h3>
-        </div>
+        
 
         @livewireScripts
     </body>
