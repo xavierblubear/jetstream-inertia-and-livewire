@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Livewire\NewHome;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -15,9 +16,7 @@ use Inertia\Inertia;
 |
 */
 
-Route::get('/', function() {
-    return view('livewire.home');
-});
+Route::get('/', NewHome::class);
 
 Route::get('/admin', function () {
     return Inertia::render('Welcome', [
