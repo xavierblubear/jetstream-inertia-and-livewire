@@ -8,6 +8,6 @@ class Header extends Component
 {
     public function render()
     {
-        return view('livewire.layouts.header');
+        return view('website.components.header');
     }
 }

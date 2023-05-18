@@ -35,6 +35,14 @@ class RouteServiceProvider extends ServiceProvider
 
             Route::middleware('web')
                 ->group(base_path('routes/web.php'));
+            $this->homeRoutes();
         });
+    }
+    public function homeRoutes()
+    {
+        Route::middleware('web')
+            ->group(function () {
+                require base_path('modules/Home/Routes/home.php');
+            });
     }
 }

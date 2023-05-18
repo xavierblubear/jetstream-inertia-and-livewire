@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Livewire\NewHome;
+use App\Http\Livewire\Counter;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -16,7 +16,7 @@ use Inertia\Inertia;
 |
 */
 
-Route::get('/', NewHome::class);
+Route::get('/', Counter::class);
 
 Route::get('/php artisan make:livewire ShowPosts', function () {
     return Inertia::render('Welcome', [
