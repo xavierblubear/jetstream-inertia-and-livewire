@@ -15,4 +15,5 @@ Route::prefix('admin')
                 'verified',
             ]);
     });
+
 Route::get('/home', HomeComponent::class)->name('home.index');
