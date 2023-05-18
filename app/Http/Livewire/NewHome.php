@@ -28,5 +28,9 @@ class NewHome extends Component
         $this->counter--;
     }
 
+    public function test()
+    {
+        $this->counter++;
+    }
     
 }
