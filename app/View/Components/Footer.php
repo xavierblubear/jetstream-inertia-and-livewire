@@ -1,8 +1,10 @@
 <?php
 
-namespace App\Http\Livewire\Layouts;
+namespace App\View\Components;
 
-use Livewire\Component;
+use Closure;
+use Illuminate\View\Component;
+use Illuminate\Contracts\View\View;
 
 class Footer extends Component
 {
