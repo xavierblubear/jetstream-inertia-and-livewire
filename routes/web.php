@@ -16,7 +16,7 @@ use Inertia\Inertia;
 |
 */
 
-Route::get('/', Counter::class);
+Route::get('/comprar', Counter::class);
 
 Route::get('/admin', function () {
     return Inertia::render('Welcome', [

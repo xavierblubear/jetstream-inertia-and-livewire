@@ -16,4 +16,4 @@ Route::prefix('admin')
             ]);
     });
 
-Route::get('/home', HomeComponent::class)->name('home.index');
+Route::get('/', HomeComponent::class)->name('home.index');

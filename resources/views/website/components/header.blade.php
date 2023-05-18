@@ -2,8 +2,8 @@
     <nav class="container max-w-7xl flex items-center justify-between mx-auto">
         <img src="/images/logo.svg" class="w-64" alt="1001carros.com"/>
         <ul class="text-lg text-blue hidden tablet:flex">
-            <li class="font-light"><a href="/home" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Home</a></li>
-            <li class="font-light ml-7"> <a href="/" class="bg-gray-900 text-white block rounded-md px-3 py-2 text-base font-medium" aria-current="page">Counter</a></li>
+            <li class="font-light"><a href="/" class="text-blue hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Home</a></li>
+            <li class="font-light ml-7"> <a href="/comprar" class="text-blue block rounded-md px-3 py-2 text-base font-medium" aria-current="page">Comprar</a></li>
         </ul>
         <div class="flex items-center justify-end tablet:hidden">
             <ul class="hidden mobile:flex text-lg text-blue mr-6">
