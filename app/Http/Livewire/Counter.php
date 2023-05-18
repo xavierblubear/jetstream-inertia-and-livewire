@@ -12,6 +12,15 @@ class Counter extends Component
     // public $eventData;
     public $counter = 1;
 
+    public $cars = array(
+        [
+          'name' => 'Car 1',
+        ],
+        [
+          'name' => 'Car 2',
+        ],
+      );
+
     protected $listeners = ['click' => 'clickButton'];
 
     public function render()

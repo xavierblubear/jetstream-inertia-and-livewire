@@ -8,7 +8,7 @@ use Illuminate\Contracts\View\View;
 
 class buttonSecundary extends Component
 {
-    public string $car;
+    public array $car;
     /**
      * Create a new component instance.
      */
