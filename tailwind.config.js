@@ -50,9 +50,20 @@ export default {
                 DEFAULT: "rgba(17,17,17,.5)",
             },
         },
+<<<<<<< HEAD
         screens: {
             tablet: "993px",
             mobile: "778px",
+=======
+        screens:{
+            'sm': '640px',
+            'md': '768px',
+            'lg': '1024px',
+            'xl': '1280px',
+            '2xl': '1536px',
+            'tablet':'993px',
+            'mobile':'778px'
+>>>>>>> 8b5226c9ec1e4acbb24f65c9b8c32754e6e2e866
         },
         aspectRatio: {
             "4/3": "4 / 3",

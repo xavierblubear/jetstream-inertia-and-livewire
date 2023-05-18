@@ -7,10 +7,16 @@ use Livewire\Component;
 class Primarybutton extends Component
 {
     public $textButton;
+    public $eventName;
 
-    public function clickEvent()
+    public function mount($eventName)
     {
-        $this->emit('click', $eventData);
+        $this->eventName = $eventName;
+    }
+
+    public function emitButtonClick()
+    {
+        $this->emit($this->eventName);
     }
 
     public function render()

@@ -18,7 +18,7 @@ use Inertia\Inertia;
 
 Route::get('/', Counter::class);
 
-Route::get('/php artisan make:livewire ShowPosts', function () {
+Route::get('/admin', function () {
     return Inertia::render('Welcome', [
         'canLogin' => Route::has('login'),
         'canRegister' => Route::has('register'),
