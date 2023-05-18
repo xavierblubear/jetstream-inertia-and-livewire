@@ -1,5 +1,4 @@
 <button
-    wire:click="emitButtonClick"
     class="
         flex
         justify-center
@@ -20,5 +19,5 @@
         bg-yellow text-blue hover:text-white hover:border-blue    
     "
 >
- {{ $textButton }}
+ Test
 </button>
