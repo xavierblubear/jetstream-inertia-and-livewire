@@ -1,17 +1,13 @@
 <script setup>
 import AppLayout from "@/Layouts/AppLayout.vue";
-
-const people = [
-    {
-        name: "Lindsay Walton",
-        title: "Front-end Developer",
-        email: "lindsay.walton@example.com",
-        role: "Member",
-    },
-    // More people...
-];
+import { toRefs } from "vue";
 
 const props = defineProps({ cars: Object });
+
+const { cars } = toRefs(props);
+
+console.log(cars.value);
+
 </script>
 
 <template>
@@ -45,25 +41,31 @@ const props = defineProps({ cars: Object });
                                         scope="col"
                                         class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-0"
                                     >
-                                        Name
+                                        &nbsp;
+                                    </th>
+                                    <th
+                                        scope="col"
+                                        class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-0"
+                                    >
+                                        Nombre
                                     </th>
                                     <th
                                         scope="col"
                                         class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
                                     >
-                                        Title
+                                       Año
                                     </th>
                                     <th
                                         scope="col"
                                         class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
                                     >
-                                        Email
+                                        Kilometraje
                                     </th>
                                     <th
                                         scope="col"
                                         class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
                                     >
-                                        Role
+                                        Precio
                                     </th>
                                     <th
                                         scope="col"
@@ -75,28 +77,36 @@ const props = defineProps({ cars: Object });
                             </thead>
                             <tbody class="divide-y divide-gray-200">
                                 <tr
-                                    v-for="person in people"
-                                    :key="person.email"
+                                    v-for="car in cars"
+                                    :key="car.id"
                                 >
+                                    <td
+                                        class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0 w-[180px]"
+                                    >
+                                        <div class="w-full flex">
+                                            <img src="/images/car.jpg" class="w-[180px]" />
+                                        </div>
+                                        
+                                    </td>
                                     <td
                                         class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0"
                                     >
-                                        {{ person.name }}
+                                        {{car.name}}
                                     </td>
                                     <td
                                         class="whitespace-nowrap px-3 py-4 text-sm text-gray-500"
                                     >
-                                        {{ person.title }}
+                                        {{ car.year }}
                                     </td>
                                     <td
                                         class="whitespace-nowrap px-3 py-4 text-sm text-gray-500"
                                     >
-                                        {{ person.email }}
+                                        {{ car.transmission }}
                                     </td>
                                     <td
                                         class="whitespace-nowrap px-3 py-4 text-sm text-gray-500"
                                     >
-                                        {{ person.role }}
+                                    {{ car.price }}
                                     </td>
                                     <td
                                         class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-0"
@@ -105,7 +115,7 @@ const props = defineProps({ cars: Object });
                                             href="#"
                                             class="text-indigo-600 hover:text-indigo-900"
                                             >Edit<span class="sr-only"
-                                                >, {{ person.name }}</span
+                                                >, asd</span
                                             ></a
                                         >
                                     </td>
