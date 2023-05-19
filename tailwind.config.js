@@ -58,6 +58,9 @@ export default {
             blackopacity: {
                 DEFAULT: "rgba(17,17,17,.5)",
             },
+            red: {
+                DEFAULT: "#fc0a4f",
+            },
         },
         aspectRatio: {
             "4/3": "4 / 3",
