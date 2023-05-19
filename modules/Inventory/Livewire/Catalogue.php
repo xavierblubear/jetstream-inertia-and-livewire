@@ -8,19 +8,14 @@ use Modules\Inventory\Repositories\Eloquent\Criteria\TransmissionFilter;
 
 class Catalogue extends Component
 {
-    protected $carRepository;
-
     public $cars;
 
-    public $transmission = 'manual';
+    public $carTransmissions = ['manual', 'automatica'];
+    public $transmission;
 
     public function mount(CarRepository $carRepository)
     {
-        $this->carRepository = $carRepository;
-        if (!isset($this->cars) || empty($this->cars))
-        {
-            $this->cars = $this->carRepository->withCriteria()->all();
-        }
+        $this->showAll($carRepository);
     }
 
     public function render()
@@ -28,9 +23,23 @@ class Catalogue extends Component
         return view('website.pages.catalogue');
     }
 
-    public function showAll()
+    public function filterTransmission(CarRepository $carRepository, $transmission)
     {
-        $this->cars = $this->carRepository->all();
+        if ($this->transmission == $transmission) {
+            $this->transmission = null;
+            $this->showAll($carRepository);
+            return;
+        }
+
+        $this->transmission = $transmission;
+        $this->cars = $carRepository->withCriteria([
+            new TransmissionFilter($this->transmission)
+        ])->get();
+    }
+
+    public function showAll(CarRepository $carRepository)
+    {
+        $this->cars = $this->cars = $carRepository->all();
     }
 
     public function debug()

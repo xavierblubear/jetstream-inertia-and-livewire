@@ -15,6 +15,7 @@ class TransmissionFilter implements CriterionInterface
 
   public function apply($entity)
   {
-    return $entity->where('transmission', $this->transmission);
+    $transmission = strtoupper($this->transmission);
+    return $entity->where('transmission', $transmission);
   }
 }

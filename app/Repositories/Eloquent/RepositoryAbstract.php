@@ -40,6 +40,11 @@ abstract class RepositoryAbstract implements RepositoryInterface, CriteriaInterf
 
   public function all()
   {
-     return $this->entity->all();
+    return $this->entity->all();
+  }
+
+  public function get()
+  {
+    return $this->entity->get();
   }
 }

@@ -6,31 +6,17 @@
                 <div class="flex flex-col">
                     <h6 class="font-semibold mb-2">Transmisión</h6>
                     <div class="ml-4 grid grid-cols-1 gap-2">
-                        <label for="manual" class="capitalize">
-                            <input type="radio" wire:model="transmission" name="transmission" value="manual" />
-                            manual
-                        </label>
-                        <label for="automatica" class="capitalize">
-                            <input type="radio" wire:model="transmission" name="transmission" value="automatica" />
-                            automática
-                        </label>
+                        @foreach ($carTransmissions as $value)
+                            <label for="{{$value}}" class="capitalize">
+                                <input type="radio" wire:click="filterTransmission('{{$value}}')" name="transmission" value="{{$value}}" @if ($transmission == $value) checked @endif />
+                                {{$value}}
+                            </label>
+                        @endforeach
                     </div>
-                    <!-- <button class="mt-4 w-full py-3 bg-blue text-white rounded-lg" wire:click.prevent="debug">Debug</button> -->
                 </div>
             </div>
         </div>
         <div class="col-span-3">
-            <!-- <div class="grid grid-cols-1 gap-4">
-                @foreach ($cars as $car)
-                    <div class="flex flex-col p-4 border border-gray-200 rounded">
-                        <p>Name: {{ $car->name }}</p>
-                        <p>Year: {{ $car->year }}</p>
-                        <p>Kilometers: {{ $car->kilometers }}</p>
-                        <p>Transmission: {{ $car->transmission }}</p>
-                        <p>Price: {{ $car->price }}</p>
-                    </div>
-                @endforeach
-            </div> -->
             <div class="w-full max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 pb-20 px-10 gap-10">
                 @foreach ($cars as $car)
                     <x-card :car="$car"/>
