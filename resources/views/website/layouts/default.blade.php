@@ -15,14 +15,6 @@
         @vite('resources/css/app.css')
     </head>
     <body class="antialiased">
-        <!--
-        This example requires updating your template:
-
-        ```
-        <html class="h-full bg-gray-100">
-        <body class="h-full">
-        ```
-        -->
         <x-header/>
         <div class="min-h-full">
             {{ $slot }}

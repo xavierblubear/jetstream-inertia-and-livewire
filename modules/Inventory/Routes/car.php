@@ -1,6 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Modules\Inventory\Controllers\CarIndexController;
+use Modules\Inventory\Livewire\Catalogue;
 
-Route::get('/cars', CarIndexController::class);
+Route::get('/catalogue', Catalogue::class);

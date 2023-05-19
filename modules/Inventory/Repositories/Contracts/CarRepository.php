@@ -2,7 +2,10 @@
 
 namespace Modules\Inventory\Repositories\Contracts;
 
-interface CarRepository
+use App\Repositories\Contracts\RepositoryInterface;
+use App\Repositories\Criteria\CriteriaInterface;
+
+interface CarRepository extends RepositoryInterface, CriteriaInterface
 {
-  public function all();
+
 } 
