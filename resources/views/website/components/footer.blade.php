@@ -17,10 +17,10 @@
         </ul>
     </div>
     <div class="w-full flex justify-center mt-16 gap-4">
-        <a href="" target="_blank" class="w-5 h-5 text-center"><img src="/images/instagram.svg" class="h-full mx-auto" alt=""/></a>
-        <a href="" target="_blank" class="w-5 h-5 text-center"><img src="/images/tiktok.svg" class="h-full mx-auto" alt=""/></a>
-        <a href="" target="_blank" class="w-5 h-5 text-center"><img src="/images/facebook.svg" class="h-full mx-auto" alt=""/></a>
-        <a href="" target="_blank" class="w-5 h-5 text-center"><img src="/images/whatsapp.svg" class="h-full mx-auto" alt=""/></a>
+        <a href="" target="_blank" class="w-5 h-5 text-center"><img src="{{ asset('/images/instagram.svg') }}" class="h-full mx-auto" alt=""/></a>
+        <a href="" target="_blank" class="w-5 h-5 text-center"><img src="{{ asset('/images/tiktok.svg') }}" class="h-full mx-auto" alt=""/></a>
+        <a href="" target="_blank" class="w-5 h-5 text-center"><img src="{{ asset('/images/facebook.svg') }}" class="h-full mx-auto" alt=""/></a>
+        <a href="" target="_blank" class="w-5 h-5 text-center"><img src="{{ asset('/images/whatsapp.svg') }}" class="h-full mx-auto" alt=""/></a>
     </div>
     <div class="w-full text-center font-light text-xs text-blue mt-16">
         Copyright © 2023. Casabaca S.A.<br/>

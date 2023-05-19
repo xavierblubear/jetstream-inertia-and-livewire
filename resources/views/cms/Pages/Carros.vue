@@ -1,13 +1,11 @@
 <script setup>
 import AppLayout from "@/Layouts/AppLayout.vue";
 import { toRefs } from "vue";
+import Vapor from "laravel-vapor";
 
 const props = defineProps({ cars: Object });
 
 const { cars } = toRefs(props);
-
-console.log(cars.value);
-
 </script>
 
 <template>
@@ -53,7 +51,7 @@ console.log(cars.value);
                                         scope="col"
                                         class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
                                     >
-                                       Año
+                                        Año
                                     </th>
                                     <th
                                         scope="col"
@@ -76,22 +74,25 @@ console.log(cars.value);
                                 </tr>
                             </thead>
                             <tbody class="divide-y divide-gray-200">
-                                <tr
-                                    v-for="car in cars"
-                                    :key="car.id"
-                                >
+                                <tr v-for="car in cars" :key="car.id">
                                     <td
                                         class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0 w-[180px]"
                                     >
                                         <div class="w-full flex">
-                                            <img src="/images/car.jpg" class="w-[180px]" />
+                                            <img
+                                                :src="
+                                                    Vapor.asset(
+                                                        'images/car.jpg'
+                                                    )
+                                                "
+                                                class="w-[180px]"
+                                            />
                                         </div>
-                                        
                                     </td>
                                     <td
                                         class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0"
                                     >
-                                        {{car.name}}
+                                        {{ car.name }}
                                     </td>
                                     <td
                                         class="whitespace-nowrap px-3 py-4 text-sm text-gray-500"
@@ -106,7 +107,7 @@ console.log(cars.value);
                                     <td
                                         class="whitespace-nowrap px-3 py-4 text-sm text-gray-500"
                                     >
-                                    {{ car.price }}
+                                        {{ car.price }}
                                     </td>
                                     <td
                                         class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-0"
