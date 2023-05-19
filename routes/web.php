@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CarIndexController;
 use App\Http\Livewire\Counter;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -15,8 +16,6 @@ use Inertia\Inertia;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/comprar', Counter::class);
 
 Route::get('/admin', function () {
     return Inertia::render('Welcome', [

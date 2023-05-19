@@ -36,13 +36,23 @@ class RouteServiceProvider extends ServiceProvider
             Route::middleware('web')
                 ->group(base_path('routes/web.php'));
             $this->homeRoutes();
+            $this->inventoryRoutes();
         });
     }
+
     public function homeRoutes()
     {
         Route::middleware('web')
             ->group(function () {
                 require base_path('modules/Home/Routes/home.php');
+            });
+    }
+
+    public function inventoryRoutes()
+    {
+        Route::middleware('web')
+            ->group(function () {
+                require base_path('modules/Inventory/Routes/car.php');
             });
     }
 }

@@ -1,3 +1,5 @@
+@props(['type'])
+
 <button
     class="
         flex

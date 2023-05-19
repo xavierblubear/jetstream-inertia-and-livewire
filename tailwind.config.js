@@ -19,6 +19,15 @@ export default {
                 sans: ["Figtree", ...defaultTheme.fontFamily.sans],
             },
         },
+        screens: {
+            sm: "640px",
+            md: "768px",
+            lg: "1024px",
+            xl: "1280px",
+            "2xl": "1536px",
+            tablet: "993px",
+            mobile: "778px",
+        },
         colors: {
             transparent: "transparent",
             current: "currentColor",
@@ -49,15 +58,6 @@ export default {
             blackopacity: {
                 DEFAULT: "rgba(17,17,17,.5)",
             },
-        },
-        screens:{
-            'sm': '640px',
-            'md': '768px',
-            'lg': '1024px',
-            'xl': '1280px',
-            '2xl': '1536px',
-            'tablet':'993px',
-            'mobile':'778px'
         },
         aspectRatio: {
             "4/3": "4 / 3",
