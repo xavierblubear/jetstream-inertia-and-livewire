@@ -3,6 +3,7 @@
 namespace Modules\Inventory\Controllers;
 
 use App\Http\Controllers\Controller;
+use Inertia\Inertia;
 use Modules\Inventory\Repositories\Contracts\CarRepository;
 
 class CarIndexController extends Controller
@@ -17,8 +18,7 @@ class CarIndexController extends Controller
   public function __invoke()
   {
     $cars = $this->carRepository->all();
-    dd($cars);
 
-    return 'it works!!';
+    return Inertia::render('Carros', ['cars' => $cars]);
   }
 }
