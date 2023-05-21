@@ -3,9 +3,8 @@
 namespace Modules\Inventory\Services;
 
 use Modules\Inventory\Repositories\Contracts\CarRepository;
-use Modules\Inventory\Repositories\Eloquent\Criteria\CarWithBrand;
 use Modules\Shared\Gateways\Contracts\MailerGateway;
-use Modules\Shared\Gateways\Contracts\SugarAPiGateway;
+use Modules\Shared\Gateways\Contracts\SugarApiGateway;
 
 class CarService
 {
@@ -13,7 +12,7 @@ class CarService
   protected $mailer;
   protected $sugarCrm;
 
-  public function __construct(CarRepository $carRepository, MailerGateway $mailer, SugarAPiGateway $sugarCrm)
+  public function __construct(CarRepository $carRepository, MailerGateway $mailer, SugarApiGateway $sugarCrm)
   {
     $this->carRepository = $carRepository;
     $this->mailer = $mailer;

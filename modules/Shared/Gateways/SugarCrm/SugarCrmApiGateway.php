@@ -2,9 +2,9 @@
 
 namespace Modules\Shared\Gateways\SugarCrm;
 
-use Modules\Shared\Gateways\Contracts\SugarAPiGateway;
+use Modules\Shared\Gateways\Contracts\SugarApiGateway;
 
-class SugarCrmApiGateway implements SugarAPiGateway
+class SugarCrmApiGateway implements SugarApiGateway
 {
   public function createTicket()
   {

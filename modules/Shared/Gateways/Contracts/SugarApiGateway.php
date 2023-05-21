@@ -2,7 +2,7 @@
 
 namespace Modules\Shared\Gateways\Contracts;
 
-interface SugarAPiGateway
+interface SugarApiGateway
 {
   public function createTicket();
 }
