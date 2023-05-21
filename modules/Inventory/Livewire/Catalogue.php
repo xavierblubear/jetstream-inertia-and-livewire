@@ -11,6 +11,8 @@ use Modules\Inventory\Services\CarService;
 class Catalogue extends Component
 {
     public $cars;
+    public $mailMessage;
+    public $ticketMessage;
 
     public $transmissions = ['manual', 'automatica'];
     public $selectedTransmissions = [];
@@ -42,7 +44,10 @@ class Catalogue extends Component
             array_push($criteria, new CarByBrands($this->selectedBrandsIds));
         }
 
-        $this->cars = $carService->filterByCriteria($criteria);
+        $response = $carService->filterByCriteria($criteria);
+        $this->cars = $response['cars'];
+        $this->mailMessage = $response['mailMessage'];
+        $this->ticketMessage = $response['ticketMessage'];
     }
 
     public function debug()

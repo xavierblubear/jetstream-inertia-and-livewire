@@ -40,6 +40,8 @@
             </div>
         </div>
         <div class="col-span-3">
+            <div>{{ $mailMessage }} </div>
+            <div>{{ $ticketMessage }} </div>
             <div class="w-full max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 pb-20 px-10 gap-10">
                 @foreach ($cars as $car)
                     <x-card :car="$car"/>

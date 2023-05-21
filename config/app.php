@@ -171,6 +171,7 @@ return [
         App\Providers\FortifyServiceProvider::class,
         App\Providers\JetstreamServiceProvider::class,
         App\Providers\RepositoryServiceProvider::class,
+        App\Providers\GatewayServiceProvider::class,
         App\Providers\LivewireServiceProvider::class
     ])->toArray(),
 
