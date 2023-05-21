@@ -3,19 +3,25 @@
 namespace Modules\Inventory\Livewire;
 
 use Livewire\Component;
-use Modules\Inventory\Repositories\Contracts\CarRepository;
-use Modules\Inventory\Repositories\Eloquent\Criteria\TransmissionFilter;
+use Modules\Inventory\Repositories\Eloquent\Criteria\CarByBrands;
+use Modules\Inventory\Repositories\Eloquent\Criteria\CarByTransmissions;
+use Modules\Inventory\Services\BrandService;
+use Modules\Inventory\Services\CarService;
 
 class Catalogue extends Component
 {
     public $cars;
 
-    public $carTransmissions = ['manual', 'automatica'];
-    public $transmission;
+    public $transmissions = ['manual', 'automatica'];
+    public $selectedTransmissions = [];
 
-    public function mount(CarRepository $carRepository)
+    public $brands;
+    public $selectedBrandsIds = [];
+
+    public function mount(CarService $carService, BrandService $brandService)
     {
-        $this->showAll($carRepository);
+        $this->cars = $carService->repository()->all();
+        $this->brands = $brandService->repository()->all();
     }
 
     public function render()
@@ -23,27 +29,24 @@ class Catalogue extends Component
         return view('website.pages.catalogue');
     }
 
-    public function filterTransmission(CarRepository $carRepository, $transmission)
+    public function filter(CarService $carService)
     {
-        if ($this->transmission == $transmission) {
-            $this->transmission = null;
-            $this->showAll($carRepository);
-            return;
+        $criteria = [];
+        if (count($this->selectedTransmissions) > 0)
+        {
+            array_push($criteria, new CarByTransmissions($this->selectedTransmissions));
         }
 
-        $this->transmission = $transmission;
-        $this->cars = $carRepository->withCriteria([
-            new TransmissionFilter($this->transmission)
-        ])->get();
-    }
+        if (count($this->selectedBrandsIds) > 0)
+        { 
+            array_push($criteria, new CarByBrands($this->selectedBrandsIds));
+        }
 
-    public function showAll(CarRepository $carRepository)
-    {
-        $this->cars = $this->cars = $carRepository->all();
+        $this->cars = $carService->filterByCriteria($criteria);
     }
 
     public function debug()
     {
-        dd($this->cars);
+        dd($this->selectedBrandsIds);
     }
 }

@@ -16,7 +16,7 @@
     </head>
     <body class="antialiased">
         <x-header/>
-        <div class="min-h-full">
+        <div class="min-h-full border-t-2 border-yellow">
             {{ $slot }}
         </div>
         <x-footer/>

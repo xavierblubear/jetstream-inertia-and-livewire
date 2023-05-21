@@ -3,8 +3,14 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use Modules\Inventory\Repositories\Contracts\CarRepository;
-use Modules\Inventory\Repositories\Eloquent\EloquentCarRepository;
+use Modules\Inventory\Repositories\Contracts\{
+    BrandRepository,
+    CarRepository
+};
+use Modules\Inventory\Repositories\Eloquent\{
+    EloquentBrandRepository,
+    EloquentCarRepository
+};
 
 class RepositoryServiceProvider extends ServiceProvider
 {
@@ -22,5 +28,6 @@ class RepositoryServiceProvider extends ServiceProvider
     public function boot(): void
     {
         $this->app->bind(CarRepository::class, EloquentCarRepository::class);
+        $this->app->bind(BrandRepository::class, EloquentBrandRepository::class);
     }
 }

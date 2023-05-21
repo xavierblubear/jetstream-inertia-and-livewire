@@ -3,12 +3,12 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Modules\Inventory\Models\Car;
+use Modules\Inventory\Models\Brand;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\Modules\Inventory\Models\Model>
  */
-class CarFactory extends Factory
+class BrandFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -19,11 +19,6 @@ class CarFactory extends Factory
     {
         return [
             'name' => $this->faker->unique()->name(),
-            'brand_id' => $this->faker->randomElement([1, 2, 3, 4, 5]),
-            'year' => $this->faker->year(),
-            'kilometers' => $this->faker->numberBetween(10000, 30000),
-            'transmission' => $this->faker->randomElement(['AUTOMATICA', 'MANUAL']),
-            'price' => $this->faker->numberBetween(8000, 35000),
         ];
     }
 
@@ -34,6 +29,6 @@ class CarFactory extends Factory
      */
     public function modelName()
     {
-        return Car::class;
+        return Brand::class;
     }
 }
