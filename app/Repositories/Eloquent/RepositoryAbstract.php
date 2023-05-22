@@ -2,49 +2,55 @@
 
 namespace App\Repositories\Eloquent;
 
-use App\Repositories\Contracts\RepositoryInterface;
+use Laravel\Scout\Builder;
+use Illuminate\Support\Arr;
 use App\Repositories\Criteria\CriteriaInterface;
 use App\Repositories\Exceptions\NoEntityDefined;
-use Illuminate\Support\Arr;
+use App\Repositories\Contracts\RepositoryInterface;
 
 abstract class RepositoryAbstract implements RepositoryInterface, CriteriaInterface
 {
-  protected $entity;
+    protected $entity;
+    protected $scoutModel;
 
-  public function __construct()
-  {
-    $this->entity = $this->resolveEntity();
-  }
-
-  protected function resolveEntity()
-  {
-    if (!method_exists($this, 'entity'))
+    public function __construct()
     {
-      throw new NoEntityDefined();
+        $this->entity = $this->resolveEntity();
     }
 
-    return app()->make($this->entity());
-  }
-
-  public function withCriteria(...$criteria)
-  {
-    $criteria = Arr::flatten($criteria);
-
-    foreach ($criteria as $criterion)
+    protected function resolveEntity()
     {
-      $this->entity = $criterion->apply($this->entity);
+        if (!method_exists($this, 'entity')) {
+            throw new NoEntityDefined();
+        }
+
+        return app()->make($this->entity());
     }
 
-    return $this;
-  }
+    /**
+     * Aplicar filtros a los modelos
+     *
+     * @param any ...$criteria
+     * @return RepositoryAbstract
+     */
+    public function withCriteria(...$criteria)
+    {
+        $criteria = Arr::flatten($criteria);
 
-  public function all()
-  {
-    return $this->entity->all();
-  }
+        foreach ($criteria as $criterion) {
+            $this->entity = $criterion->apply($this->entity);
+        }
 
-  public function get()
-  {
-    return $this->entity->get();
-  }
+        return $this;
+    }
+
+    public function all()
+    {
+        return $this->entity->all();
+    }
+
+    public function get()
+    {
+        return $this->entity->get();
+    }
 }
