@@ -28,6 +28,7 @@ class Car extends Model
     {
         return CarFactory::new();
     }
+    
     /**
      * Get the name of the index associated with the model.
      */

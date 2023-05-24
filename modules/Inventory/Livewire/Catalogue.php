@@ -3,7 +3,6 @@
 namespace Modules\Inventory\Livewire;
 
 use Livewire\Component;
-use Modules\Inventory\Models\Car;
 use Modules\Inventory\Services\CarService;
 use Modules\Inventory\Services\BrandService;
 use Modules\Inventory\Repositories\Eloquent\Criteria\CarByBrands;
@@ -25,7 +24,6 @@ class Catalogue extends Component
 
     public function mount(BrandService $brandService)
     {
-        // $this->cars = $carService->repository()->all();
         $this->brands = $brandService->repository()->all();
     }
 
@@ -49,14 +47,12 @@ class Catalogue extends Component
         $response = ($carService->filterByCriteriaAndSearch($criteria, $this->search));
         $this->cars = $response;
     }
+
     public function getFiltersProperty()
     {
         return collect($this->selectedTransmissions)->concat($this->selectedBrandsIds);
     }
-    public function debug()
-    {
-        dd($this->selectedBrandsIds);
-    }
+
     public function removeFilter($index)
     {
         array_splice($this->selectedTransmissions, $index, 1);

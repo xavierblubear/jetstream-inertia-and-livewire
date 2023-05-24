@@ -14,6 +14,7 @@ interface SearchInterface
      * @return  $this
      */
     public function search($search = '', $callback = null);
+    
     /**
      * Aplicar filtros a la busqueda de Meilisearch
      *

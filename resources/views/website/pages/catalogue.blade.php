@@ -16,7 +16,7 @@
                         @foreach ($transmissions as $transmission)
                             <label for="{{ $transmission }}" class="capitalize">
                                 <input type="checkbox" value="{{ $transmission }}"
-                                    wire:model.defer="selectedTransmissions" wire:click="filter"
+                                    wire:model="selectedTransmissions"
                                     @checked(in_array($transmission, $selectedTransmissions)) />
                                 <span>{{ $transmission }}</span>
                             </label>
@@ -28,18 +28,14 @@
                     <div class="ml-4 grid grid-cols-1 gap-2">
                         @foreach ($brands as $brand)
                             <label for="brand_{{ $brand->id }}">
-                                <input type="checkbox" value="{{ $brand->id }}" wire:model.defer="selectedBrandsIds"
-                                    wire:click="filter" @checked(in_array($brand, $selectedBrandsIds))>
+                                <input type="checkbox" value="{{ $brand->id }}"
+                                    wire:model="selectedBrandsIds"
+                                    @checked(in_array($brand, $selectedBrandsIds))>
                                 <span>{{ $brand->name }}</span>
                             </label>
                         @endforeach
                     </div>
                 </div>
-                <!-- DEBUG
-                <div class="flex flex-col items-center mt-3">
-                    <button class="flex py-2 px-4 bg-blue text-white justify-center rounded" wire:click="debug">Debug</button>
-                </div>
-                DEBUG -->
             </div>
         </div>
         <div class="col-span-3">

@@ -14,6 +14,7 @@ class EloquentCarRepository extends RepositoryAbstract implements CarRepository
     {
         return Car::class;
     }
+    
     /**
      * Realizar una busqueda mediante Scout.
      *
@@ -26,6 +27,7 @@ class EloquentCarRepository extends RepositoryAbstract implements CarRepository
         $this->scoutModel = $this->entity::search($search, $callback);
         return $this;
     }
+
     /**
      * Retornar una instancia de Scout con los filtros aplicados.
      *
