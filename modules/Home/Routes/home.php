@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Modules\Home\Livewire\HomeComponent;
-use Modules\Home\Controllers\Cms\HomeController;
+use Modules\Home\Infrastructure\Controllers\HomeController;
+use Modules\Home\Infrastructure\Livewire\HomeComponent;
 
 Route::prefix('admin')
     ->name('admin.')

@@ -3,13 +3,13 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use Modules\Inventory\Repositories\Contracts\{
-    BrandRepository,
-    CarRepository
+use Modules\Inventory\Domain\Contracts\Repositories\{
+    CarRepository,
+    BrandRepository
 };
-use Modules\Inventory\Repositories\Eloquent\{
-    EloquentBrandRepository,
-    EloquentCarRepository
+use Modules\Inventory\Infrastructure\Eloquent\Repositories\{
+    EloquentCarRepository,
+    EloquentBrandRepository
 };
 
 class RepositoryServiceProvider extends ServiceProvider

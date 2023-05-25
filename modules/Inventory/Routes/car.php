@@ -1,9 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Inertia\Inertia;
-use Modules\Inventory\Controllers\CarIndexController;
-use Modules\Inventory\Livewire\Catalogue;
+use Modules\Inventory\Infrastructure\Controllers\CarIndexController;
+use Modules\Inventory\Infrastructure\Livewire\Catalogue;
 
 Route::get('/comprar', Catalogue::class);
 

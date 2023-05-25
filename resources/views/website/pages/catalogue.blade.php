@@ -52,7 +52,7 @@
                     placeholder="Buscar">
             </div>
             <div class="my-2 mx-10 ">
-                <div class="text-blue"><strong>{{ $cars->count() }}</strong> resultados encontrados</div>
+                <div class="text-blue"><strong>{{ count($cars) }}</strong> resultados encontrados</div>
                 <div>
                     @foreach ($this->selectedTransmissions as $i => $filtro)
                         <span

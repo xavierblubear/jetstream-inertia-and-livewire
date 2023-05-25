@@ -4,11 +4,12 @@ namespace App\Providers;
 
 use Livewire\Livewire;
 use Illuminate\Support\ServiceProvider;
+use Modules\Home\Infrastructure\Livewire\HomeComponent;
 
 class LivewireComponentsServiceProvider extends ServiceProvider
 {
     public function boot()
     {
-        Livewire::component('home-component', \Modules\Home\Livewire\HomeComponent::class);
+        Livewire::component('home-component', HomeComponent::class);
     }
 }

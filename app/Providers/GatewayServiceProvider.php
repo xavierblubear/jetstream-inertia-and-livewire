@@ -3,12 +3,12 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use Modules\Shared\Gateways\Contracts\{
+use Modules\Shared\Domain\Contracts\Gateways\{
     MailerGateway,
     SugarApiGateway
 };
-use Modules\Shared\Gateways\SugarCrm\SugarCrmApiGateway;
-use Modules\Shared\Gateways\SymfonyMailer\SymfonyMailerGateway;
+use Modules\Shared\Infrastructure\SugarCrm\Gateways\SugarCrmApiGateway;
+use Modules\Shared\Infrastructure\SymfonyMailer\Gateways\SymfonyMailerGateway;
 
 class GatewayServiceProvider extends ServiceProvider
 {

@@ -4,7 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Livewire\Livewire;
-use Modules\Inventory\Livewire\Catalogue;
+use Modules\Inventory\Infrastructure\Livewire\Catalogue;
 
 class LivewireServiceProvider extends ServiceProvider
 {
