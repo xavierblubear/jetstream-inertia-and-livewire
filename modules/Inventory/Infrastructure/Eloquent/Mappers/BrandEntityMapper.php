@@ -18,7 +18,8 @@ class BrandEntityMapper implements MapperInterface
     public static function toEntity($brand): BrandEntity {
         return new BrandEntity(
             $brand->id,
-            $brand->name
+            $brand->name,
+            $brand->slug
         );
     }
 
@@ -30,11 +31,11 @@ class BrandEntityMapper implements MapperInterface
      */
     public static function toEntities($brands): array {
         $brandEntities = [];
-        
+
         foreach ($brands as $brand) {
             $brandEntities[] = self::toEntity($brand);
         }
-        
+
         return $brandEntities;
     }
 }

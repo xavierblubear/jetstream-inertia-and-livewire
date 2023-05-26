@@ -17,7 +17,7 @@ class CarEntityMapper implements MapperInterface
      * @return CarEntity
      */
     public static function toEntity($car): CarEntity {
-        $brandEntity = new BrandEntity($car->brand_id, $car->brand->name);
+        $brandEntity = new BrandEntity($car->brand_id, $car->brand->name,$car->brand->slug);
 
         return new CarEntity(
             $car->id,
@@ -38,11 +38,11 @@ class CarEntityMapper implements MapperInterface
      */
     public static function toEntities($cars): array {
         $carEntities = [];
-        
+
         foreach ($cars as $car) {
             $carEntities[] = self::toEntity($car);
         }
-        
+
         return $carEntities;
     }
 }

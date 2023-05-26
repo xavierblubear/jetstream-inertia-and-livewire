@@ -2,9 +2,9 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use Modules\Inventory\Models\Car;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Modules\Inventory\Infrastructure\Eloquent\Models\Car;
 
 class CarSeeder extends Seeder
 {

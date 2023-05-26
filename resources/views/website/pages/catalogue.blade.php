@@ -28,7 +28,7 @@
                     <div class="ml-4 grid grid-cols-1 gap-2">
                         @foreach ($brands as $brand)
                             <label for="brand_{{ $brand['id'] }}">
-                                <input type="checkbox" value="{{ $brand['id'] }}"
+                                <input type="checkbox" value="{{ $brand['slug'] }}"
                                     wire:model="selectedBrandsIds"
                                     @checked(in_array($brand, $selectedBrandsIds))>
                                 <span>{{ $brand['name'] }}</span>
@@ -58,7 +58,7 @@
                         <span
                             class="inline-flex items-center gap-x-0.5 rounded-md bg-blue-50 px-2 py-1 text-xs font-medium text-blue-700 ring-1 ring-inset ring-blue-700/10 capitalize">
                             {{ $filtro }}
-                            <button type="button" wire:click='removeFilter({{ $i }})'
+                            <button type="button" wire:click='removeFilter({{ $i }},"selectedTransmissions")'
                                 class="group relative -mr-1 h-3.5 w-3.5 rounded-sm hover:bg-blue-600/20">
                                 <span class="sr-only">Remove</span>
                                 <svg viewBox="0 0 14 14"
@@ -69,6 +69,21 @@
                             </button>
                         </span>
                     @endforeach
+                    @foreach ($this->selectedBrandsIds as $i => $filtro)
+                    <span
+                        class="inline-flex items-center gap-x-0.5 rounded-xl bg-blue-50 px-2 py-1 text-xs font-medium text-blue-700 ring-1 ring-inset ring-blue-700/10 capitalize">
+                        {{ $filtro }}
+                        <button type="button" wire:click='removeFilter({{ $i }}, "selectedBrandsIds")'
+                            class="group relative -mr-1 h-3.5 w-3.5 rounded-sm hover:bg-blue-600/20">
+                            <span class="sr-only">Remove</span>
+                            <svg viewBox="0 0 14 14"
+                                class="h-3.5 w-3.5 text-blue stroke-blue group-hover:stroke-blue">
+                                <path d="M4 4l6 6m0-6l-6 6" />
+                            </svg>
+                            <span class="absolute -inset-1"></span>
+                        </button>
+                    </span>
+                @endforeach
                 </div>
             </div>
             <div class="w-full max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 pb-20 px-10 gap-10">

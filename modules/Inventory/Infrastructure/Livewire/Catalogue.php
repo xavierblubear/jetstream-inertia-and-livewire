@@ -47,16 +47,16 @@ class Catalogue extends Component
         return collect($this->selectedTransmissions)->concat($this->selectedBrandsIds);
     }
 
-    public function removeFilter($index)
+    public function removeFilter($index, $key)
     {
-        array_splice($this->selectedTransmissions, $index, 1);
+        array_splice($this->{$key}, $index, 1);
     }
 
     private function buildCarFilters()
     {
         return new CarFilters(
             $this->selectedTransmissions,
-            $this->selectedBrandsIds
+            collect($this->brands)->whereIn('slug', $this->selectedBrandsIds)->pluck('id')->toArray()
         );
     }
 

@@ -3,7 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use Modules\Inventory\Models\Brand;
+use Modules\Inventory\Infrastructure\Eloquent\Models\Brand;
 
 class BrandSeeder extends Seeder
 {
@@ -13,10 +13,10 @@ class BrandSeeder extends Seeder
      */
     public function run(): void
     {
-      Brand::factory()->create(['name' => 'Toyota']);
-      Brand::factory()->create(['name' => 'Chevrolet']);
-      Brand::factory()->create(['name' => 'Kía']);
-      Brand::factory()->create(['name' => 'Suzuki']);
-      Brand::factory()->create(['name' => 'Renault']);
+        Brand::factory()->create(['name' => 'Toyota', 'slug' => 'toyota']);
+        Brand::factory()->create(['name' => 'Chevrolet', 'slug' => 'chevrolet']);
+        Brand::factory()->create(['name' => 'Kía', 'slug' => 'kia']);
+        Brand::factory()->create(['name' => 'Suzuki', 'slug' => 'susuki']);
+        Brand::factory()->create(['name' => 'Renault', 'slug' => 'renault']);
     }
 }
