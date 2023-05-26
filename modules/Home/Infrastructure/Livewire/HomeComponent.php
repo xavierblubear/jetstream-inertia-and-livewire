@@ -11,11 +11,22 @@ class HomeComponent extends Component
 
     public function mount(BrandService $brandService)
     {
-        $this->mostSearchedBrands = $brandService->getMostSearchedBrands();
+        $brands = $brandService->getMostSearchedBrands();
+        $this->mostSearchedBrands = $this->toArrays($brands);
     }
 
     public function render()
     {
         return view('website.pages.home');
+    }
+
+    private function toArrays($entities)
+    {
+        $data = [];
+        foreach ($entities as $entity)
+        {
+            array_push($data, $entity->toArray());
+        }
+        return $data;
     }
 }

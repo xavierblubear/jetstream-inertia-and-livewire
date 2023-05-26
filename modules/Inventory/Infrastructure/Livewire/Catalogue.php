@@ -25,7 +25,8 @@ class Catalogue extends Component
 
     public function mount(BrandService $brandService)
     {
-        $this->brands = $brandService->all();
+        $brands = $brandService->all();
+        $this->brands = $this->toArrays($brands);
     }
 
     public function render(CarService $carService)

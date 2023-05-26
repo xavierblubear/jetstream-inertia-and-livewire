@@ -17,19 +17,24 @@ class EloquentCarRepository extends EloquentSearchableRepositoryAbstract impleme
         return Car::class;
     }
 
+    public function mapper()
+    {
+        return CarEntityMapper::class;
+    }
+
     public function filter(CarFilters $filters): array
     {
         
         $criteria = $this->getCriteria($filters);
         $repository = $this->withCriteria($criteria);
-        return CarEntityMapper::toCarEntities($repository->entity->get());
+        return CarEntityMapper::toEntities($repository->entity->get());
     }
 
     public function searchAndFilter(CarFilters $filters, $search = ''): array
     {
         $criteria = $this->getCriteria($filters);
         $repository = $this->search($search)->withCriteriaSearch($criteria);
-        return CarEntityMapper::toCarEntities($repository->scoutModel->get());
+        return CarEntityMapper::toEntities($repository->scoutModel->get());
     }
 
     /**

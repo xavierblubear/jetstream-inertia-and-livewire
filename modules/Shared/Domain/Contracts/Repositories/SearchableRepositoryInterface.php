@@ -2,12 +2,10 @@
 
 namespace Modules\Shared\Domain\Contracts\Repositories;
 
-use Laravel\Scout\Builder;
-
 interface SearchableRepositoryInterface
 {
     /**
-     * Realizar una busqueda mediante Scope
+     * Perform a search trough Scope
      *
      * @param string $search
      * @param function|null $callback
@@ -16,7 +14,7 @@ interface SearchableRepositoryInterface
     public function search($search = '', $callback = null);
     
     /**
-     * Aplicar filtros a la busqueda de Meilisearch
+     * Apply filters to the Meilisearch search
      *
      * @param array...$criteria
      * @return $this

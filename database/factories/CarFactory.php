@@ -3,7 +3,7 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Modules\Inventory\Models\Car;
+use Modules\Inventory\Infrastructure\Eloquent\Models\Car;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\Modules\Inventory\Models\Model>

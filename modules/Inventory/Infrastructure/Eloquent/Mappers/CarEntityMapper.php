@@ -6,8 +6,9 @@ use Illuminate\Database\Eloquent\Collection;
 use Modules\Inventory\Domain\Entities\BrandEntity;
 use Modules\Inventory\Domain\Entities\CarEntity;
 use Modules\Inventory\Infrastructure\Eloquent\Models\Car;
+use Modules\Shared\Infrastructure\Eloquent\Mappers\MapperInterface;
 
-class CarEntityMapper
+class CarEntityMapper implements MapperInterface
 {
     /**
      * Maps an Eloquent Car Model to a CarEntity object.
@@ -15,7 +16,7 @@ class CarEntityMapper
      * @param Car $car
      * @return CarEntity
      */
-    public static function toCarEntity(Car $car): CarEntity {
+    public static function toEntity($car): CarEntity {
         $brandEntity = new BrandEntity($car->brand_id, $car->brand->name);
 
         return new CarEntity(
@@ -35,11 +36,11 @@ class CarEntityMapper
      * @param Collection $cars
      * @return CarEntity[]
      */
-    public static function toCarEntities(Collection $cars): array {
+    public static function toEntities($cars): array {
         $carEntities = [];
         
         foreach ($cars as $car) {
-            $carEntities[] = self::toCarEntity($car);
+            $carEntities[] = self::toEntity($car);
         }
         
         return $carEntities;

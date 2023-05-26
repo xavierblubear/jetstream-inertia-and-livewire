@@ -27,11 +27,11 @@
                     <h6 class="font-semibold mb-2">Marcas</h6>
                     <div class="ml-4 grid grid-cols-1 gap-2">
                         @foreach ($brands as $brand)
-                            <label for="brand_{{ $brand->id }}">
-                                <input type="checkbox" value="{{ $brand->id }}"
+                            <label for="brand_{{ $brand['id'] }}">
+                                <input type="checkbox" value="{{ $brand['id'] }}"
                                     wire:model="selectedBrandsIds"
                                     @checked(in_array($brand, $selectedBrandsIds))>
-                                <span>{{ $brand->name }}</span>
+                                <span>{{ $brand['name'] }}</span>
                             </label>
                         @endforeach
                     </div>

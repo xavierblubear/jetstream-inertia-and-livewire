@@ -15,6 +15,16 @@ class CarService
     }
 
     /**
+     * Get an array of all the cars
+     *
+     * @return CarEntity[]
+     */
+    public function all(): array
+    {
+        return $this->carRepository->all();
+    }
+
+    /**
      * Get an array of filtered car entities
      *
      * @param CarFilters $filters
@@ -24,20 +34,6 @@ class CarService
     {
         return $this->carRepository->filter($filters);
     }
-
-    /**
-     * Obtener busqueda mediante Meilisearch con filtros aplicados
-     *
-     * @param  ...$criteria
-     * @param string $search
-     * @param mixed $callback
-     * @return CarEntity[]
-     */
-    // public function filterByCriteriaAndSearch($criteria, string $search = '', mixed $callback = null)
-    // {
-    //     $scoutRepository = $this->carRepository->search($search, $callback)->withCriteriaSearch($criteria);
-    //     return $scoutRepository->get();
-    // }
 
     /**
      * Search an array of cars and apply filters

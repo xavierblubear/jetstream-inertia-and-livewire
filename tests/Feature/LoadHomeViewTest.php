@@ -14,7 +14,7 @@ class LoadHomeViewTest extends TestCase
      */
     public function test_load_home_view(): void
     {
-        $response = $this->get('/home');
+        $response = $this->get('/');
         $response->assertStatus(200);
     }
 }
