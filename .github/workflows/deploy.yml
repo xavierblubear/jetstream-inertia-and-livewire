@@ -8,17 +8,6 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
 
-    services:
-      mysql:
-        image: mysql:latest
-        env:
-          MYSQL_ROOT_PASSWORD: password
-          MYSQL_DATABASE: test
-        ports:
-          - 33306:3306
-        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
- 
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -42,8 +31,8 @@ jobs:
           php artisan key:generate
       - name: Create Database
         run: |
-          touch database/database.sqlite
-          php artisan migrate
+          touch database/database.sqlite -y
+          php artisan migrate --force
       - name: Run Testsuite
         run: php artisan test
         env:
