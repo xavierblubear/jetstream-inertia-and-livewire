@@ -42,7 +42,6 @@ jobs:
           php artisan key:generate
       - name: Create Database
         run: |
-          mkdir -p database
           touch database/database.sqlite
           php artisan migrate
       - name: Run Testsuite
