@@ -31,7 +31,7 @@ jobs:
           php artisan key:generate
       - name: Create Database
         run: |
-          touch database/database.sqlite -y
+          yes | touch database/database.sqlite
           php artisan migrate --force
       - name: Run Testsuite
         run: php artisan test
