@@ -2,7 +2,7 @@ name: Deploy
 
 on:
   push:
-    branches: [ master ]
+    branches: [master]
 
 jobs:
   deploy:
@@ -12,41 +12,54 @@ jobs:
       meilisearch:
         image: getmeili/meilisearch:v1.1
         env:
-          MEILI_MASTER_KEY: 'masterKey'
-          MEILI_NO_ANALYTICS: 'true'
+          MEILI_MASTER_KEY: "masterKey"
+          MEILI_NO_ANALYTICS: "true"
         ports:
-          - '7700:7700'
+          - "7700:7700"
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
           php-version: 8.2
           tools: composer:v2
           coverage: none
+
       - name: Require Vapor CLI
         run: composer global require laravel/vapor-cli
+
       - name: Install Project Dependencies
         run: composer install --no-interaction --prefer-dist --optimize-autoloader
+
       - name: Install front-end dependencies
         run: |
           npm install
           npm run build
+
       - name: Prepare Laravel Application
         run: |
           cp .env.ci .env
           php artisan key:generate
+
       - name: Create Database
         run: |
           yes | touch database/database.sqlite
           php artisan migrate --force
-      - name: Run Testsuite
+
+      - name: Run Test Suite
         run: php artisan test
         env:
           DB_CONNECTION: sqlite
           DB_DATABASE: database/database.sqlite
+
       - name: Deploy Environment
         run: vapor deploy production --without-waiting
         env:
